@@ -1,13 +1,27 @@
 {
-  "name": "@kaliber/library",
+  "name": "@kaliber/sanity-plugin-preview",
   "version": "1.0.0",
+  "description": "Adds a (p)review document action to Sanity",
   "main": "index.js",
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "build": "sanipack build",
+    "watch": "sanipack build --watch",
+    "verify": "sanipack verify",
+    "prepublishOnly": "sanipack build && sanipack verify",
+    "prepare": "[ -f scripts/addPeerDependencies.js ] && node scripts/addPeerDependencies.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaliberjs/sanity-plugin-preview.git"
+  },
   "keywords": [
-    "hello"
+    "sanity",
+    "sanity-plugin",
+    "preview"
   ],
   "files": [
     "index.js",
@@ -18,6 +32,13 @@
   ],
   "private": false,
   "license": "MIT",
-  "description": "A short description",
-  "repository": "https://github.com/kaliberjs/library.git"
+  "author": "Kaliber Machinery <machinery@kaliber.net>",
+  "devDependencies": {
+    "sanipack": "^2.1.0"
+  },
+  "peerDependencies": {
+    "@kaliber/sanity-preview": "^0.0.1",
+    "@sanity/icons": "^1.2.5",
+    "query-string": "^7.1.1"
+  }
 }

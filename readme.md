@@ -14,35 +14,45 @@
 - run `git push --tags`
 - Send everybody an email to introduce them to your library!
 
-# Library title
-Short description.
-
-## Motivation
-Optionally add a bit of text describing why this library exists.
+# Sanity plugin preview
+Adds (p)review document actions to Sanity.
 
 ## Installation
 
 ```
-yarn add @kaliber/library
+yarn add @kaliber/sanity-plugin-preview
 ```
 
+## Prerequisites
+This plugin expects your frontend to:
+
+- Expose an `/api/v1/document/path` endpoint. This endpoint should accepts a POST request with a document object as JSON, returning a JSON object with a `path` property pointing to the url for this document. Alternatively, the JSON object may have a `error` property in case something went wrong. 
+- Handle the `/preview?id=${document._id}&type=${document._type}` route by displaying the correct preview page for the given document id & type (this can be implemented using `@kaliber/sanity-preview`).
+
 ## Usage
-Short example. If your library has multiple ways to use it, show the most used one and refer to `/example` for further examples.
+Create a file called `resolveDocumentActions.js` in your sanity folder, and add the following:
 
-```jsx
-import { hello } from 'library'
+```js
+import defaultResolve from 'part:@sanity/base/document-actions'
+import { DocumentActionProductionPreview, DocumentActionProductionReview } from '@kaliber/sanity-plugin-preview'
 
-function Component() {
-  return <div>{hello()}</div>
+export default function resolveDocumentActions(props) {
+  return [...defaultResolve(props), DocumentActionProductionPreview, DocumentActionProductionReview]
 }
 ```
 
-# Reference
-Optionally add a reference, if your library needs it.
+Next, add it to your parts in your `sanity.json` file: 
 
-![](https://media.giphy.com/media/find-a-good-gif/giphy.gif)
+```json
+{
+  "implements": "part:@sanity/base/document-actions/resolver",
+  "path": "./resolveDocumentActions.js"
+}
+```
+
+---
+
+![](https://media.giphy.com/media/3oriOfWPE8r5YeK3lK/giphy.gif)
 
 ## Disclaimer
-This library is intended for internal use, we provide __no__ support, use at your own risk. It does not import React, but expects it to be provided, which [@kaliber/build](https://kaliberjs.github.io/build/) can handle for you.
-
-This library is not transpiled.
+This library is intended for internal use, we provide __no__ support, use at your own risk.
