@@ -1,5 +1,5 @@
 import { EarthGlobeIcon } from '@sanity/icons'
-import { resolveProductionUrl } from './resolveProductionUrl'
+import { resolveProductionUrl } from 'part:@kaliber/resolve-production-url'
 
 export function DocumentActionProductionReview({ published }) {
   if (!published) return null
