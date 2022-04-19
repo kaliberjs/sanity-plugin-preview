@@ -1,6 +1,6 @@
 {
   "name": "@kaliber/sanity-plugin-preview",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Adds a (p)review document action to Sanity",
   "main": "index.js",
   "sideEffects": false,
@@ -38,7 +38,7 @@
   },
   "peerDependencies": {
     "@kaliber/sanity-preview": "^0.0.1",
-    "@sanity/icons": "^1.2.7",
+    "@sanity/icons": "^1.2.8",
     "query-string": "^7.1.1"
   }
 }
