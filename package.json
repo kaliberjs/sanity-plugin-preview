@@ -38,7 +38,7 @@
   },
   "peerDependencies": {
     "@kaliber/sanity-preview": "^0.0.1",
-    "@sanity/icons": "^1.2.5",
+    "@sanity/icons": "^1.2.7",
     "query-string": "^7.1.1"
   }
 }
