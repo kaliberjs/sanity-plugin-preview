@@ -6,7 +6,7 @@ export function DocumentActionProductionReview({ published }) {
 
   return {
     icon: EarthGlobeIcon,
-    label: 'Live bekijken',
+    label: 'Live view',
     color: 'success',
     onHandle: () => {
       resolveProductionUrl(published).then(url => { window.open(url, '_blank').focus() })

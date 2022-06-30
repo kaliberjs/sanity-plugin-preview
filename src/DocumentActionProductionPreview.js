@@ -12,7 +12,7 @@ export function DocumentActionProductionPreview({ draft }) {
     disabled: !draft,
     icon: EyeOpenIcon,
     label: 'Preview',
-    title: draft ? '' : 'Er zijn geen wijzigingen',
+    title: draft ? '' : 'There are no changes',
     onHandle: async () => {
       const url = await resolveProductionUrl(draft, {
         queryString: { 
