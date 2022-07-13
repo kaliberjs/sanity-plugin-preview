@@ -1,6 +1,6 @@
 {
   "name": "@kaliber/sanity-plugin-preview",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Adds a (p)review document action to Sanity",
   "main": "index.js",
   "sideEffects": false,
