@@ -29,7 +29,8 @@
     "LICENSE",
     "readme.md",
     "package.json",
-    "sanity.json"
+    "sanity.json",
+    "config.dist.json"
   ],
   "private": false,
   "license": "MIT",
