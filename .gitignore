@@ -55,3 +55,5 @@ yalc.lock
 
 ##npm package zips
 *.tgz
+
+yarn.lock
