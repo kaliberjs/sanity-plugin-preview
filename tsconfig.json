@@ -14,7 +14,7 @@
     "checkJs": true,
     "noEmit": true,
     "paths": {
-      "/*": ["src/*"]
+      "*": ["ts/node_modules/*"]
     }
   }
 }
