@@ -1,6 +1,6 @@
 import { EarthGlobeIcon } from '@sanity/icons'
 
-export function DocumentActionProductionReview({ published, resolvePublishedUrl }) {
+export function documentActionProductionReview({ published, resolvePublishedUrl }) {
   if (!published) return null
 
   return {
@@ -8,7 +8,8 @@ export function DocumentActionProductionReview({ published, resolvePublishedUrl 
     label: 'View live',
     color: 'success',
     onHandle: async () => {
-      window.open(await resolvePublishedUrl(published), '_blank').focus()
+      const url = await resolvePublishedUrl(published)
+      if (url) window.open(url, '_blank').focus()
     }
   }
 }

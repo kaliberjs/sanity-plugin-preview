@@ -1,13 +1,14 @@
 import { EyeOpenIcon } from '@sanity/icons'
 
-export function DocumentActionProductionPreview({ draft, resolvePreviewUrl }) {
+export function documentActionProductionPreview({ draft, resolvePreviewUrl }) {
   return {
     disabled: !draft,
     icon: EyeOpenIcon,
     label: 'Preview',
     title: draft ? '' : 'There are no changes',
     onHandle: async () => {
-      window.open(await resolvePreviewUrl(draft), '_blank').focus()
+      const url = await resolvePreviewUrl(draft)
+      if (url) window.open(url, '_blank').focus()
     }
   }
 }
