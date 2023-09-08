@@ -18,7 +18,7 @@ import { documentActionProductionReview } from './documentActionProductionReview
  * } Resolve
  */
 
-export const SanityPluginPreview = definePlugin(
+export const sanityPluginPreview = definePlugin(
   /** @type {import('sanity').PluginFactory<Options>} */
   ({ resolvePublishedUrl, resolvePreviewUrl }) => ({
     name: 'sanity-plugin-preview',
