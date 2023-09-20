@@ -49,6 +49,28 @@ Signatures of the required paramaters:
 }) => Promise<string | null>
 ```
 
+## Additional setup
+
+It's possible to prevent 'preview' and 'view live' for documents that have required fields. A good
+example is the `slug` field, if that is missing we can not determine the route and thus can not
+preview.
+
+Add the following to the schema in order to disable the buttons:
+
+```js
+export const page = {
+  type: 'document',
+  name: 'page',
+  title: 'Page',
+  options: {
+    kaliber: {
+      requiredForPreview: ['slug'],
+      ...
+    },
+  },
+  ...
+```
+
 ---
 
 ## Development
