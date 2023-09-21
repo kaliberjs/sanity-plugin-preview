@@ -31,11 +31,13 @@ export const sanityPluginPreview = definePlugin(
           .concat([
             ({ draft }) => documentActionProductionPreview({
               draft,
-              resolvePreviewUrl: document => resolvePreviewUrl({ document, schema, getClient })
+              resolvePreviewUrl: document => resolvePreviewUrl({ document, schema, getClient }),
+              schema,
             }),
             ({ published }) => documentActionProductionReview({
               published,
-              resolvePublishedUrl: document => resolvePublishedUrl({ document, schema, getClient })
+              resolvePublishedUrl: document => resolvePublishedUrl({ document, schema, getClient }),
+              schema,
             }),
           ])
       }
