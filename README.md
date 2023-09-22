@@ -7,7 +7,6 @@ Adds (p)review document actions to Sanity:
 ## Installation
 
 ```
-> cd admin
 > yarn add @kaliber/sanity-plugin-preview
 ```
 
