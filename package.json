@@ -1,6 +1,6 @@
 {
   "name": "@kaliber/sanity-plugin-preview",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Adds a (p)review document action to Sanity",
   "sideEffects": false,
   "publishConfig": {
@@ -38,9 +38,9 @@
   },
   "peerDependencies": {
     "@kaliber/sanity-preview": "^0.0.1",
-    "@sanity/icons": "^2.4.1",
+    "@sanity/icons": "^2.7.0",
     "query-string": "^8.1.0",
     "react": "^18.2.0",
-    "sanity": "^3.16.7"
+    "sanity": "^3.20.2"
   }
 }
