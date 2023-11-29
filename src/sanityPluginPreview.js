@@ -29,12 +29,12 @@ export const sanityPluginPreview = definePlugin(
 
         return prev
           .concat([
-            ({ draft }) => documentActionProductionPreview({
+            ({ draft }) => isEnabled(schema, draft) && documentActionProductionPreview({
               draft,
               resolvePreviewUrl: document => resolvePreviewUrl({ document, schema, getClient }),
               schema,
             }),
-            ({ published }) => documentActionProductionReview({
+            ({ published }) => isEnabled(schema, published) && documentActionProductionReview({
               published,
               resolvePublishedUrl: document => resolvePublishedUrl({ document, schema, getClient }),
               schema,
@@ -45,3 +45,11 @@ export const sanityPluginPreview = definePlugin(
   })
 )
 
+export const isPreviewEnabled = isEnabled
+
+function isEnabled(schema, document) {
+  if (!document) return null
+
+  const schemaType = schema.get(document._type)
+  return !schemaType.options?.kaliber?.previewDisabled || null
+}
