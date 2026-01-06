@@ -1,10 +1,19 @@
 import { EarthGlobeIcon } from '@sanity/icons'
 import { requiredFieldsMissing } from './requiredFieldsMissing'
 
+/** @import { SanityDocument, Schema } from 'sanity' */
+
+/**
+ * @arg {{
+ *   published: SanityDocument,
+ *   resolvePublishedUrl: (document: SanityDocument) => Promise<string | null>,
+ *   schema: Schema,
+ * }} props
+ */
 export function documentActionProductionReview({ published, resolvePublishedUrl, schema }) {
   if (!published) return null
 
-  const fieldsMissing = requiredFieldsMissing({ schema, document: published})
+  const fieldsMissing = requiredFieldsMissing({ schema, document: published })
   return {
     disabled: fieldsMissing,
     icon: EarthGlobeIcon,
@@ -13,7 +22,7 @@ export function documentActionProductionReview({ published, resolvePublishedUrl,
     color: 'success',
     onHandle: async () => {
       const url = await resolvePublishedUrl(published)
-      if (url) window.open(url, '_blank').focus()
+      if (url) window.open(url, '_blank')?.focus()
     }
   }
 }

@@ -1,6 +1,7 @@
 import { definePlugin } from 'sanity'
 import { documentActionProductionPreview } from './documentActionProductionPreview'
 import { documentActionProductionReview } from './documentActionProductionReview'
+/** @import { SanityDocument, Schema, SourceClientOptions, SanityClient, PluginFactory, DocumentOptions } from 'sanity' */
 
 /**
  * @typedef {{
@@ -11,15 +12,15 @@ import { documentActionProductionReview } from './documentActionProductionReview
 
 /**
  * @typedef {(props: {
- *     document: import('sanity').SanityDocument,
- *     schema: import('sanity').Schema,
- *     getClient: (options: import('sanity').SourceClientOptions) => import('sanity').SanityClient,
+ *     document: SanityDocument,
+ *     schema: Schema,
+ *     getClient: (options: SourceClientOptions) => SanityClient,
  *   }) => Promise<string | null>
  * } Resolve
  */
 
 export const sanityPluginPreview = definePlugin(
-  /** @type {import('sanity').PluginFactory<Options>} */
+  /** @type {PluginFactory<Options>} */
   ({ resolvePublishedUrl, resolvePreviewUrl }) => ({
     name: 'sanity-plugin-preview',
     document: {
@@ -30,12 +31,16 @@ export const sanityPluginPreview = definePlugin(
         return prev
           .concat([
             ({ draft }) => isEnabled(schema, draft) && documentActionProductionPreview({
+              // @ts-ignore draft can not be null anymore (see isEnabled)
               draft,
+              /** @arg {SanityDocument} document */
               resolvePreviewUrl: document => resolvePreviewUrl({ document, schema, getClient }),
               schema,
             }),
             ({ published }) => isEnabled(schema, published) && documentActionProductionReview({
+              // @ts-ignore published can not be null anymore (see isEnabled)
               published,
+              /** @arg {SanityDocument} document */
               resolvePublishedUrl: document => resolvePublishedUrl({ document, schema, getClient }),
               schema,
             }),
@@ -47,9 +52,16 @@ export const sanityPluginPreview = definePlugin(
 
 export const isPreviewEnabled = isEnabled
 
+/**
+ * @arg {Schema} schema
+ * @arg {SanityDocument | null} document
+ */
 function isEnabled(schema, document) {
   if (!document) return null
 
   const schemaType = schema.get(document._type)
-  return !schemaType.options?.kaliber?.previewDisabled || null
+
+  /** @type {undefined | DocumentOptions} */
+  const options = schemaType?.options
+  return options?.kaliber?.previewDisabled || null
 }
