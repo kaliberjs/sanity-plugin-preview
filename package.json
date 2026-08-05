@@ -26,6 +26,10 @@
     "package.json",
     "readme.md"
   ],
+  "devDependencies": {
+    "@kaliber/eslint-plugin": "^2.1.2",
+    "@kaliber/stylelint-plugin": "^2.1.1"
+  },
   "peerDependencies": {
     "@sanity/icons": "^5.2.1",
     "query-string": "^9.4.1",
