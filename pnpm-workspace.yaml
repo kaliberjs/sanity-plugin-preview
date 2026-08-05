@@ -1,0 +1,5 @@
+nodeLinker: hoisted
+
+minimumReleaseAge: 2880 # 2 days
+minimumReleaseAgeExclude:
+  - '@kaliber/*'

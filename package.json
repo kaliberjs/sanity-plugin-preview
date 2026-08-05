@@ -1,6 +1,6 @@
 {
   "name": "@kaliber/sanity-plugin-preview",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "description": "Adds a (p)review document action to Sanity",
   "sideEffects": false,
   "publishConfig": {
@@ -24,23 +24,12 @@
     "sanity.json",
     "LICENCE",
     "package.json",
-    "readme.md",
-    "v2-incompatible.js"
+    "readme.md"
   ],
-  "scripts": {
-    "prepare": "[ -f scripts/addPeerDependencies.js ] && node scripts/addPeerDependencies.js"
-  },
-  "dependencies": {
-    "@sanity/incompatible-plugin": "^1.0.4"
-  },
-  "devDependencies": {
-    "@kaliber/build": "^0.0.143"
-  },
   "peerDependencies": {
-    "@kaliber/sanity-preview": "^0.0.1",
-    "@sanity/icons": "^2.7.0",
-    "query-string": "^8.1.0",
-    "react": "^18.2.0",
-    "sanity": "^3.20.2"
+    "@sanity/icons": "^5.2.1",
+    "query-string": "^9.4.1",
+    "react": "^19.2.8",
+    "sanity": "^6.0.0"
   }
 }

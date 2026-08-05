@@ -1,4 +1,4 @@
-import { EarthGlobeIcon } from '@sanity/icons'
+import { EarthGlobeIcon } from '@sanity/icons/EarthGlobe'
 import { requiredFieldsMissing } from './requiredFieldsMissing'
 
 export function documentActionProductionReview({ published, resolvePublishedUrl, schema }) {
