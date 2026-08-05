@@ -31,7 +31,7 @@
     "@kaliber/stylelint-plugin": "^2.1.1"
   },
   "peerDependencies": {
-    "@sanity/icons": "^5.2.1",
+    "@sanity/icons": "^5.0.0",
     "query-string": "^9.4.1",
     "react": "^19.2.8",
     "sanity": "^6.0.0"
