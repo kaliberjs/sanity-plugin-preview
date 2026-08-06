@@ -1,4 +1,4 @@
-import { EyeOpenIcon } from '@sanity/icons'
+import { EyeOpenIcon } from '@sanity/icons/EyeOpen'
 import { requiredFieldsMissing } from './requiredFieldsMissing'
 
 export function documentActionProductionPreview({ draft, resolvePreviewUrl, schema }) {

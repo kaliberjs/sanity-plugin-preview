@@ -10,6 +10,10 @@ Adds (p)review document actions to Sanity:
 > yarn add @kaliber/sanity-plugin-preview
 ```
 
+This package declares its dependencies (`sanity`, `react`, `@sanity/icons`, `query-string`) as peer
+dependencies. pnpm, npm 7+ and Yarn Berry install these automatically; on Yarn Classic you'll need
+to add them to your project yourself.
+
 _`config/default.js`_
 
 ```js
@@ -42,9 +46,9 @@ Signatures of the required paramaters:
 
 ```ts
 ({ 
-  document: SanityDocument, 
-  schema: Schema, 
-  getClient: (options: SourceClientOptions) => SanityClient 
+  document: SanityDocument,  // from '@sanity/types'
+  schema: Schema,            // from '@sanity/types'
+  getClient: (options: SourceClientOptions) => SanityClient  // from 'sanity'
 }) => Promise<string | null>
 ```
 

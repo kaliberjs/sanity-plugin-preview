@@ -11,8 +11,8 @@ import { documentActionProductionReview } from './documentActionProductionReview
 
 /**
  * @typedef {(props: {
- *     document: import('sanity').SanityDocument,
- *     schema: import('sanity').Schema,
+ *     document: import('@sanity/types').SanityDocument,
+ *     schema: import('@sanity/types').Schema,
  *     getClient: (options: import('sanity').SourceClientOptions) => import('sanity').SanityClient,
  *   }) => Promise<string | null>
  * } Resolve
